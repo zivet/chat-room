@@ -2,8 +2,11 @@ package com.ioverlap.dojo.chatroom.controller;
 
 import com.ioverlap.dojo.chatroom.model.User;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import javax.validation.Valid;
 
 @Controller
 public class LoginController {
@@ -12,4 +15,13 @@ public class LoginController {
     public String index(User user) {
         return "login";
     }
+
+    @RequestMapping(value = "/", method = RequestMethod.POST)
+    public String login(@Valid User user, BindingResult bindingResult) {
+        if(bindingResult.hasErrors()) {
+            return "login";
+        }
+        return "chat";
+    }
+
 }
