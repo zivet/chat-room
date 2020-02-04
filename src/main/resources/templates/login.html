@@ -1,17 +1,15 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
-<head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="../static/css/style.css">
-</head>
-<body>
-<form action="/" method="post">
-    <label for="username">
-        <span th:errors="${user.username}" class="errorMessage"></span>
-        <span>Username</span>
-        <input type="text" id="username" name="username">
-        <input type="submit">
-    </label>
-</form>
-</body>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="../static/css/style.css">
+    </head>
+    <body>
+        <h1>Chat Room</h1>
+        <form action="/" method="post">
+            <span th:errors="${user.username}" class="errorMessage"></span>
+            <input type="text" id="username" name="username">
+            <input type="submit" value="Login">
+        </form>
+    </body>
 </html>
