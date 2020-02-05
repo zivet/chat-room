@@ -34,7 +34,7 @@
 
                 //connect
                 const username = [[${user.username}]];  
-                const webSocket = new WebSocket("ws://localhost:8080/chat/" + username);
+                const webSocket = new WebSocket([[${webSocketUrl}]] + username);
 
                 //greeting
                 document.querySelector("#greeting").textContent = "Wellcome " + username;
