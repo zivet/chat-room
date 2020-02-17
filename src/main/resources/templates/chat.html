@@ -1,32 +1,44 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
     <head>
-        <meta charset="utf-8">
+        <meta charset="utf-8">        
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+        rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="/css/style.css">
     </head>
     <body>
         <header>
             <h1 id="title">Chat Room</h1>
-            <a th:href="@{~/}">Exit</a>
+            <a th:href="@{~/}">
+                <i class="exit-icon material-icons">exit_to_app</i>
+            </a>
         </header>
         <main>
             <h1 id="greeting"></h1>
-            <span id="state"></span>
-            <span id="onlineUsers"></span>
-            <div id="">
-                <label for="message">
-                    <span>Send Text</span>
-                    <input type="text" id="message" name="message">
-                </label>
-                <button id="sendMessageButton">SEND (ENTER)</button>
-                <button id="clearMessageButton">CLEAR</button>
+            <div id="stateBox">
+                <i class="info-icon material-icons">tag_faces</i>
+                <span>Content</span>
+            </div>
+            <div id="onlineUsersBox">
+                <i class="info-icon material-icons">face</i>
+                <span>Online Users</span>
+                <span id="onlineUsers"></span>
             </div>
             
-            <div id="conversationBox">
-                <div class="messageBox">
-                    <p></p>
+            <div id="formMessage">
+                <i class="chat-icon material-icons">chat</i>
+                <label for="message">
+                <span>Send Text</span>
+                    <input type="text" id="message" name="message" placeholder="Enter a message" required>
+                </label>
+                <div id="buttonCollection">
+                    <button id="sendMessageButton">SEND (ENTER)</button>
+                    <button id="clearMessageButton">CLEAR</button>
                 </div>
+                
             </div>
+            
+            <div id="conversationBox"></div>
         </main>
 
         <script th:inline="javascript">
@@ -61,7 +73,7 @@
                     let message = JSON.parse(event.data) || {};
                     let contentMessage;
                     if(message.type === "CHAT") {
-                        contentMessage = "<div class='messageBox chatMessage'><span id='receiver'>" + message.sender + ": </span><p>" + message.body + "</p></div>";
+                        contentMessage = "<div class='messageBox chatMessage'><span id='receiver'>" + message.sender + ":&nbsp;</span><p>" + message.body + "</p></div>";
                     }
                     else {
                         contentMessage = "<div class='messageBox connectDisconnectMessage'><p>" + message.body + "</p></div>";
