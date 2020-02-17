@@ -1,3 +1,57 @@
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0px;
+    padding: 0px;
+}
+
+#loginBodyPage{
+    /*Image credit: Nathan Anderson https://unsplash.com/@nathananderson - via Unsplash, Creative Commons.*/
+    background: #383a3c url('/img/nathan-anderson-suhIKWU9oI8-unsplash.jpg');
+    font-family: 'Raleway', Calibri, Arial, sans-serif;
+}
+
 .errorMessage {
     color: red;
+}
+
+#loginTitle {
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    margin: 0.5em;
+}
+
+#loginButton {
+    background-color: rgb(27, 158, 219);
+    color: white;
+    border: 0;
+    border-radius: 15px;
+    padding: 0.9em;
+    font-size: 14px;
+    width: 300px;
+    margin: 0.5em;
+}
+
+#username {
+    border: solid 1px lightgray;
+    border-radius: 15px;
+    padding: 0.6em;
+    font-size: 14px;
+    width: 300px;
+    margin: 0.5em;
+}
+
+form {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+#loginBox {
+    margin-top: 10%;
 }

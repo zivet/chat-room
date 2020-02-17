@@ -4,12 +4,15 @@
         <meta charset="utf-8">
         <link rel="stylesheet" type="text/css" href="/css/style.css">
     </head>
-    <body>
-        <h1>Chat Room</h1>
-        <form action="/" method="post">
-            <span th:errors="${user.username}" class="errorMessage"></span>
-            <input type="text" id="username" name="username">
-            <input type="submit" value="Login">
-        </form>
+    <body id="loginBodyPage">
+        <div id="loginBox">
+            <h1 id="loginTitle">Chat Room</h1>
+            <form action="/" method="post">
+                <span th:errors="${user.username}" class="errorMessage"></span>
+                <input type="text" id="username" name="username" 
+                minlength="3" maxlength="12" placeholder="Enter your username" required>
+                <input type="submit" value="Login" id="loginButton">
+            </form>
+        </div>        
     </body>
 </html>
